@@ -1,0 +1,489 @@
+/* reset css  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+header .header_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 15px;
+  /* text-transform giúp chuyển đổi từ chữ thường sang chữ hoa  */
+  text-transform: uppercase;
+}
+
+header {
+  padding: 20px 0;
+  position: absolute;
+
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.226);
+}
+
+header .header_logo {
+  font-size: 32px;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s;
+}
+
+header nav .active a {
+  color: #e42b49;
+}
+header nav li a:hover {
+  color: green;
+}
+
+.banner {
+  background-image: url(./../image/home_slider.jpg);
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.banner p {
+  font-size: 25px;
+}
+
+.banner h1 {
+  font-size: 75px;
+  line-height: 85px;
+}
+
+.banner button {
+  padding: 15px 30px;
+  text-transform: uppercase;
+  background-color: #e42b49;
+  color: white;
+  border: 1px solid #e42b49;
+
+  /* cursor thay đổi kiểu hiển thị của con chuột  */
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.banner button:hover {
+  background-color: #be243e;
+  transition: all 0.4s;
+}
+
+.banner .banner_content {
+  margin-top: 100px;
+}
+
+.service {
+  background-color: black;
+  color: white;
+  padding: 40px 0;
+}
+
+.service .service_title .service_sub_title {
+  color: #e42b49;
+}
+
+.service h2 {
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.service .service_title {
+  text-align: center;
+}
+
+.service .service_item .item_bg {
+  background-color: white;
+  color: black;
+  position: relative;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  padding: 20px;
+  text-align: center;
+}
+
+.service .service_item {
+  padding: 0 25px;
+}
+
+.service p {
+  margin: 20px 0px;
+  color: rgba(255, 255, 255, 0.527);
+}
+
+.service .item_bg i {
+  font-size: 50px;
+  /* display: inline-block; */
+}
+
+.service .item_bg p {
+  font-size: 14px;
+  color: black;
+}
+
+/* khi đè code thư viện,luôn luôn lấy một class hoạc wid từ caasp dộ thẻ cha bọc lại,tránh selector ảnh hưởng tới tất cả thành phần sử dụng bên dươi scuar thư vienej  */
+.service .slick-dots li button::before {
+  font-size: 18px;
+  color: white;
+}
+
+.service .slick-dots li.slick-active button:before {
+  color: red;
+}
+
+.service .item_bg::after {
+  content: "";
+  display: block;
+  background-color: #e42b49;
+  height: 0;
+  width: 3px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.service .item_bg:hover::after {
+  height: 100%;
+  transition: all 0.2s;
+}
+
+/* post css  */
+.post .post_content {
+  display: grid;
+  /* tạo cấu trúc các cột cho grid  */
+  /* với giá trị repeat giúp lặp lại số lượng cột gióng nhau  */
+  grid-template-columns: repeat(4, 1fr);
+
+  /* thuộc tính gap giúp tạo khoảng cách giữa cột và dòng  */
+  gap: 20px;
+}
+
+.post .post_content .post_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* filter là một thuộc tính điều chỉnh bộ lọc cho hình ảnh có các giá trị như điều chỉnh tưởng phản,làm xám màu ........  */
+  filter: grayscale(50%) contrast(50%);
+}
+
+.post .post_item:first-child {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.post .post_item:last-child {
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.post .post_item {
+  position: relative;
+  overflow: hidden;
+}
+.post .post_item .post_item_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* color: black; */
+  background-color: #d36275;
+  display: flex;
+  padding: 30px;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  text-transform: uppercase;
+  color: black;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.post .post_item .post .post_item .post_item_overlay .post_item_text span {
+  color: #d0c3c5;
+}
+
+.post .post_item .post_item_overlay .post_item_text {
+  transform: translateY(50px);
+  transition: all 0.5s;
+}
+
+.post .post_item .post_item_icon {
+  text-align: right;
+  color: black;
+}
+.post .post_item .post_item_icon i {
+  padding: 15px;
+  background-color: white;
+  transform: translateY(30px);
+  transition: all 0.2s;
+}
+
+.post .post_item .post_item_icon a {
+  color: black;
+}
+
+.post .post_item:hover .post_item_overlay {
+  opacity: 0.5;
+}
+/* .post .post_item:hover .overlay_text {
+  transform: translateY(0);
+} */
+
+.post .post_item:hover .post_item_icon i {
+  transform: translateY(0);
+}
+
+.post .post_item:hover .post_item_overlay .post_item_text {
+  transform: translateY(0);
+}
+
+/* number css  */
+.number {
+  background-color: black;
+  padding: 50px 0;
+  color: white;
+}
+
+.number .number_content {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.number h2 {
+  font-size: 60px;
+  font-weight: 300;
+}
+
+.number p {
+  color: #888888;
+  font-size: 20px;
+}
+
+/* digital css  */
+.digital {
+  background-image: url(./../image/bussiness_img_1.jpg);
+  padding: 50px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.digital video {
+  width: 100%;
+}
+
+.contact {
+  text-align: center;
+}
+
+/* .contact .container .contact_content {
+  display: flex;
+}
+
+iframe {
+  width: 100%;
+}
+
+
+
+.contact form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact .container .contact_content input,
+.contact button,
+.contact textarea {
+  /* display: flex;
+  flex-direction: column;
+  margin: 30px;
+  justify-content: space-around; */
+/* display: block;
+  width: 100%; 
+} */
+
+/* .contact .container .contact_content form input {
+  margin: 30px 0px;
+} */
+
+.contact .contact_content {
+  display: flex;
+  margin: 100px;
+}
+
+.contact .contact_form {
+  width: 40%;
+  margin-left: 20px;
+}
+
+.contact .contact_map {
+  width: 60%;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.contact iframe {
+  width: 100%;
+}
+
+.contact input {
+  padding: 10px;
+  height: 10%;
+}
+.contact textarea {
+  padding: 10px;
+  height: 40%;
+}
+.contact button {
+  padding: 10px 0;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.cd-top--is-visible {
+  /* // back-to-top button visible */
+  visibility: visible;
+  opacity: 1;
+}
+
+.cd-top--fade-out {
+  /* // reduce button opacity if user keeps scrolling */
+  opacity: 0.5;
+}
+
+.demo_top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background-color: #be243e;
+  padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*.contact/* .contact .container .contact_content form button {
+  margin-top: 30px;
+} */
+
+/* .demo_before_after::before {
+  content: "HÔm nay ";
+}
+
+.demo_before_after::after {
+  content: " thì trời mưa";
+} */
+
+/* .demo_flex{
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    /* khi sử dụng display-flex:trục ngang sẽ là trục chính và giá trị justify-content sẽ điều chỉnh vị trí các phần tử cho trục chính  */
+/* justify-content: center ; */
+/* justify-content: space-between; */
+/* justify-content: flex-end; */
+/* justify-content: space-around; */
+/* justify-content: space-between; */
+/* align-items: center; */
+/* flex-direction: column; */
+/* justify-content: space-between;
+    flex-direction: row-reverse;
+} */
+
+/* .demo1{
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+}
+
+.demo2
+{
+    width: 150px;
+    height: 150px;
+    background-color: red   ;
+}
+.demo4
+{
+    width: 150px;
+    height: 150px;
+    background-color: orange   ;
+}.demo3
+{
+    width: 150px;
+    height: 150px;
+    background-color: green   ;
+} */
+
+/* .demo_transform {
+  background-color: black;
+  padding: 40px 0;
+}
+.demo_trans {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  transform: translateX(100px);
+  transform: scale(0.5);
+  transform: rotate(45de@k
+*/
+
+.banner i {
+  /* thuộc tính giúp gọi animation muoons chạy  */
+  animation-name: arrowGoDown;
+  /* thuộc tính giúp xac sđịnh thời gian chạy hts một animation  */
+  animation-duration: 1s;
+
+  animation-iteration-count: infinite;
+  display: block;
+}
+@keyframes arrowGoDown {
+  /* lúc bắt đầu, mũi tên sẽ đứng tại vị trí mặc định và hỉn thị */
+  /* lúc kts thúc,mũi tn sx đi từ từ tới vị trí kts thúc và bín mất */
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    transform: translateY(100px) scale(2);
+    /* transform: rotate(200deg); */
+  }
+}
